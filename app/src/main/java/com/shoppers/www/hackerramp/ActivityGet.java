@@ -20,7 +20,7 @@ package com.shoppers.www.hackerramp;
         import android.app.Activity;
         import org.json.*;
 
-public class MainActivity extends Activity {
+public class ActivityGet extends Activity {
 
     EditText etResponse;
     TextView tvIsConnected;
@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
         }
 
         // call AsynTask to perform network operation on separate thread
-        new HttpAsyncTask().execute("http://hmkcode.appspot.com/rest/controller/get.json");
+        new HttpAsyncTask().execute("MAKE A CALL TO THE JSP TO GET DATA HERE !!!!! JSON RESPONSE");
     }
 
     public static String GET(String url){
@@ -73,9 +73,7 @@ public class MainActivity extends Activity {
         return result;
     }
 
-    public static String POST(){
-        return "";
-    }
+
 
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
