@@ -101,7 +101,7 @@ public class ActivityGet extends Activity {
 
             return GET(urls[0]);
         }
-        // onPostExecute displays the results of the AsyncTask.
+
         @Override
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();

@@ -57,27 +57,17 @@ public class ActivityPost extends Activity implements OnClickListener {
 
     }
 
-    public static String POST(String url, Person person){
+    public static String POSTAuthorize(String url, String emailID, String password){
         InputStream inputStream = null;
         String result = "";
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(url);
 
-            String json = "";
-
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("emailId", person.getEmailId());
-            jsonObject.accumulate("password", person.getPassword());
-
-            json = jsonObject.toString();
-
-            StringEntity se = new StringEntity(json);
-
-            httpPost.setEntity(se);
-
             httpPost.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
+            httpPost.setHeader("emailID",emailID);
+            httpPost.setHeader("password",password);
 
             HttpResponse httpResponse = httpclient.execute(httpPost);
 
@@ -93,6 +83,34 @@ public class ActivityPost extends Activity implements OnClickListener {
         }
 
         return result;
+    }
+
+    public static String POSTRegister(String url, String emailID, String name, String password){
+        InputStream inputStream = null;
+        String result = "";
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost(url);
+
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            httpPost.setHeader("emailID",emailID);
+            httpPost.setHeader("name",name);
+            httpPost.setHeader("password",password);
+
+            HttpResponse httpResponse = httpclient.execute(httpPost);
+
+            inputStream = httpResponse.getEntity().getContent();
+
+            if(inputStream != null)
+                result = convertInputStreamToString(inputStream);
+            else
+                result = "Did not work!";
+
+        } catch (Exception e) {
+            Log.d("InputStream", e.getLocalizedMessage());
+        }
+      return result;
     }
 
     public boolean isConnected(){
@@ -111,7 +129,7 @@ public class ActivityPost extends Activity implements OnClickListener {
                 if(!validate())
                     Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();
                 // call AsynTask to perform network operation on separate thread
-                new HttpAsyncTask().execute("MAKE A CALL TO THE JSP HERE!!!!!!!!!!!!!!");
+                new HttpAsyncTask().execute("MAKE A CALL TO THE JSP HERE!!!!!!!!!!!!!!--------- URL given here *******","authorize");
                 break;
         }
 
@@ -120,12 +138,10 @@ public class ActivityPost extends Activity implements OnClickListener {
         @Override
         protected String doInBackground(String... urls) {
 
-            person = new Person();
-            person.setEmailId(etEmail.getText().toString());
-            person.setPassword(etPassword.getText().toString());
-
-
-            return POST(urls[0],person);
+            if(urls[1].equals("authorize"))
+                return POSTAuthorize(urls[0],etEmail.getText().toString(),etPassword.getText().toString());
+            else
+                return POSTRegister(urls[0],"NAME",etEmail.getText().toString(),etPassword.getText().toString());
         }
         // onPostExecute displays the results of the AsyncTask.
         @Override
