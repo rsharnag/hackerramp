@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/tvIsConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF0000"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"/>
+
+
+
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:text="\n\n\n\n\t\t\t\t\t\tTHANK YOU FOR REGISTERING !!!!!"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.34" />
+
+
+</LinearLayout>
