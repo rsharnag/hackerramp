@@ -43,15 +43,17 @@
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-
         </activity>
         <activity
-            android:name=".ItemListing"
-            android:label="@string/title_activity_item_listing" >
+            android:name=".LendingItems"
+            android:label="@string/title_activity_lending_items" >
+        </activity>
+        <activity
+            android:name=".ListItem"
+            android:label="@string/title_activity_list_item" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

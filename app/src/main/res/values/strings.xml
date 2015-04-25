@@ -7,4 +7,6 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="app_title">SwapStyle</string>
     <string name="title_activity_item_listing">ItemListing</string>
+    <string name="title_activity_lending_items">Lending Items</string>
+    <string name="title_activity_list_item">Lending Items</string>
 </resources>
