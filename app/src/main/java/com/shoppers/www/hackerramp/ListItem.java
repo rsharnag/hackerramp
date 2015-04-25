@@ -21,14 +21,16 @@ public class ListItem extends ListActivity implements AdapterView.OnItemClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_list_item);
-        lendingItemsList = new ArrayList<>();
-        lendingItemsList.add("Shoe");
-        lendingItemsList.add("Socks");
-        lendingItemsList.add("va");
+
+        lendingItemsList = new ArrayList<LendingItem>();
+        lendingItemsList.add(new LendingItem("Shoe","342"));
+        lendingItemsList.add(new LendingItem("Socks","4432"));
+        lendingItemsList.add(new LendingItem("va","324"));
+        lendingItemsList.add(new LendingItem("Ankur","323423"));
         mAdapter = new LendingItemAdapter(ListItem.this,lendingItemsList);
         getListView().setAdapter(mAdapter);
         getListView().setOnItemClickListener(this);
+//        setContentView(R.layout.activity_list_item);
     }
 
 

@@ -9,4 +9,11 @@
     <string name="title_activity_item_listing">ItemListing</string>
     <string name="title_activity_lending_items">Lending Items</string>
     <string name="title_activity_list_item">Lending Items</string>
+    <string name="title_activity_categories">Select Category</string>
+    <string name="shoes">Shoes</string>
+    <string name="bags">Bags</string>
+    <string name="watches">Watches</string>
+    <string name="misc">Miscellaneous</string>
+    <string name="title_activity_catergories">Catergories</string>
+    <string name="title_activity_product_detail">ProductDetail</string>
 </resources>

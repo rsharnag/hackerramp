@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -20,16 +23,29 @@ public class LendingItemAdapter extends ArrayAdapter {
         super(context,android.R.layout.simple_list_item_1,items);
         this.context=context;
     }
-//    private class ViewHolder{
-//        TextView titleText;
-//    }
+    private class ViewHolder{
+        TextView titleText;
+        ImageView itemImage;
+        TextView lendPrice;
+    }
 
-//    public View getView(int position,View convertView,ViewGroup parent){
-//        ViewHolder holder = null;
-//        LendingItem item =(LendingItem) getItem(position);
-//        View viewToUse = null;
-//        LayoutInflater mInflater = (LayoutInflater) context
-//                .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+
+    public View getView(int position,View convertView,ViewGroup parent) {
+        ViewHolder holder = null;
+        LendingItem item = (LendingItem) getItem(position);
+        View viewToUse = null;
+        LayoutInflater mInflater = (LayoutInflater) context
+                .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        View rowView = mInflater.inflate(R.layout.item_label, parent, false);
+        holder = new ViewHolder();
+        holder.titleText = (TextView) rowView.findViewById(R.id.firstLine);
+        holder.itemImage = (ImageView) rowView.findViewById(R.id.icon);
+        holder.lendPrice = (TextView) rowView.findViewById(R.id.secondLine);
+
+        holder.titleText.setText(item.getProductName());
+        holder.lendPrice.setText(item.getLendPrice());
+//        holder.itemImage.setImageResource(R.drawable.);
+        return rowView;
 //        if(convertView==null) {
 //            if (useList) {
 //                viewToUse = mInflater.inflate(R.layout.fragment_lendingitem_list, null);
@@ -47,5 +63,5 @@ public class LendingItemAdapter extends ArrayAdapter {
 //        holder.titleText.setText(item.getProductName());
 //        return viewToUse;
 //    }
-
+    }
 }

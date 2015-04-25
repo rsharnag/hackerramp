@@ -5,9 +5,10 @@ package com.shoppers.www.hackerramp;
  */
 public class LendingItem {
     String productName="Shoe";
-
-    public LendingItem(String productName) {
+    String lendPrice = "231";
+    public LendingItem(String productName,String lendPrice) {
         this.productName = productName;
+        this.lendPrice = lendPrice;
     }
 
     public String getProductName() {
@@ -18,4 +19,11 @@ public class LendingItem {
         this.productName = productName;
     }
 
+    public String getLendPrice() {
+        return lendPrice;
+    }
+
+    public void setLendPrice(String lendPrice) {
+        this.lendPrice = lendPrice;
+    }
 }
